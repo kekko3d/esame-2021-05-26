@@ -130,5 +130,14 @@ public class Business {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "businessId=" + businessId + ", fullAddress=" + fullAddress + ", active=" + active
+				+ ", categories=" + categories + ", city=" + city + ", reviewCount=" + reviewCount + ", businessName="
+				+ businessName + ", neighborhoods=" + neighborhoods + ", latitude=" + latitude + ", longitude="
+				+ longitude + ", state=" + state + ", stars=" + stars + '\n' + '\n';
+	}
+	
+	
 	
 }
