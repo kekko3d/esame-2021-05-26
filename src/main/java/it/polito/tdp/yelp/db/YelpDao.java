@@ -159,7 +159,8 @@ public class YelpDao {
 	
 	
 	public List<Collegamento> getCollegamenti(String citta ,int year ){
-		
+		//metodo YEAR: restituisce un int quindi non devi per forza scrivere YEAR(?)
+		//ma passi un int con setInt
 		String sql = "SELECT r1.`business_id` as id1, r2.`business_id` as id2, (AVG(r1.`stars`) - AVG(r2.`stars`)) as peso "
 				+ "FROM Reviews r1, Reviews r2, Business b1, Business b2 "
 				+ "WHERE b1.`business_id` = r1.`business_id` AND b2.`business_id` = r2.`business_id` "
@@ -182,8 +183,8 @@ public class YelpDao {
 			ResultSet res = st.executeQuery();
 			while (res.next()) {
 
-				Collegamento edge = new Collegamento(res.getString("business_id"), 
-						res.getString("business_id"),
+				Collegamento edge = new Collegamento(res.getString("id1"), 
+						res.getString("id2"),
 						res.getDouble("peso"));
 				result.add(edge);
 			}
